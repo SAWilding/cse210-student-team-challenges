@@ -27,12 +27,16 @@ class Director:
         self.keep_playing = True
         self.words = Words()
         
+
+
+
     def start_game(self):
         """Starts the game loop to control the sequence of play.
         
         Args:
             self (Director): an instance of Director.
         """
+        Console.display_board()    
         while self.keep_playing:
             self.get_inputs()
             self.do_updates()
@@ -45,10 +49,10 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        message = self.seeker.get_message()
-        self.console.write(message)
-        location = self.console.read_number("Enter a location [1-1000]: ")
-        self.seeker.move(location)
+        #message = self.seeker.get_message()
+        #self.console.write(message)
+        #location = self.console.read_number("Enter a location [1-1000]: ")
+        #self.seeker.move(location)
         
     def do_updates(self):
         """Updates the important game information for each round of play. In 
@@ -57,7 +61,8 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        self.hider.watch(self.seeker.location)
+        self.console.display_board
+        #self.hider.watch(self.seeker.location)
         
     def do_outputs(self):
         """Outputs the important game information for each round of play. In 
