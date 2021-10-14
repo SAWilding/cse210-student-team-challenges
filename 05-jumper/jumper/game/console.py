@@ -68,7 +68,5 @@ class Console():
         
         print('\n')
         print('^^^^^')
-        
-        pass
 
 
