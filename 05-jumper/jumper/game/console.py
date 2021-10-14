@@ -30,18 +30,6 @@ class Console():
         """
         user_incorrect_number_of_guesses = 3
 
-        """
-        Displays the dash list.
-        """
-        for x in range(len(self.letter_list)):
-
-            if (self.guess_list[x] == 1):
-                print(self.letter_list[x], end=" ")
-            else:
-                print("_ ", end="")
-        print("")
-
-
 
         """
         Displays the jumper character.
@@ -68,7 +56,23 @@ class Console():
         
         print('\n')
         print('^^^^^')
-        
+
         pass
 
 
+
+    def display_word(self):
+        """
+        Displays the dash list.
+        """
+
+        for x in range(len(self.letter_list)):
+
+             if (self.guess_list[x] == 1):
+                print(self.letter_list[x], end=" ")
+             else:
+                    print("_ ", end="")
+        print("")
+            
+
+        pass
