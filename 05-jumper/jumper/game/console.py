@@ -7,16 +7,18 @@ class Console():
     def __init__(self):
         self.letter_list = []
         self.dash_list = []
-        user_incorrect_number_of_guesses = 0
+        self.user_incorrect_number_of_guesses = 0
         self.user_guess = ""
         self.jumper = Jumper()
         
 
-    def get_user_input():
+    def get_user_input(self):
         """
         Get guess letter guess from the user.
         """
-        pass
+        self.user_guess = input("Guess a letter [a-z]: ")
+
+        return self.user_guess
 
     
 
@@ -25,7 +27,7 @@ class Console():
         """
         Displays the dash list and jumper character.
         """
-        user_incorrect_number_of_guesses = 3
+        self.user_incorrect_number_of_guesses = 3
 
 
         print('_ _ _ _ _ ')
