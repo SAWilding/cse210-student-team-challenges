@@ -5,9 +5,10 @@ class Console():
     Prints stuff to the screen.
     """
     def __init__(self):
-        self.letter_list = []
-        self.dash_list = []
-        self.user_incorrect_number_of_guesses = 0
+        self.letter_list = ["t","e","s","t","b","l"]
+        self.guess_list = [0,0,0,1,1,0]
+
+        user_incorrect_number_of_guesses = 0
         self.user_guess = ""
         self.jumper = Jumper()
         
@@ -16,18 +17,40 @@ class Console():
         """
         Get guess letter guess from the user.
         """
+<<<<<<< Updated upstream
         self.jumper.user_guess = input("Guess a letter [a-z]: ")
 
         return self.jumper.user_guess
+=======
+        pass
+>>>>>>> Stashed changes
 
     
 
 
     def display_board(self):
         """
-        Displays the dash list and jumper character.
+        Inilize Variables
         """
+        user_incorrect_number_of_guesses = 3
 
+        """
+        Displays the dash list.
+        """
+        for x in range(len(self.letter_list)):
+
+            if (self.guess_list[x] == 1):
+                print(self.letter_list[x], end=" ")
+            else:
+                print("_ ", end="")
+        print("")
+
+
+
+        """
+        Displays the jumper character.
+        """
+        #starting Header for image
         print('_ _ _ _ _ ')
         print('\n')
 
@@ -44,7 +67,7 @@ class Console():
 
         #prints the array fromtop to bottom, if the user has any number of incorrect guesses, this will automatically 
         #remove the most top section of the image of the character.
-        for x in reversed(range(length - self.user_incorrect_number_of_guesses)):
+        for x in reversed(range(length - user_incorrect_number_of_guesses)):
             print(Array_of_Character[x])
 
         
