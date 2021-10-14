@@ -7,14 +7,15 @@ class Words():
     def __init__(self):
 
         self.words = ["Mars", "astronaut", "space", "comet", "explore", "supernova", "telescope", "Pluto"]
+        self.current_word = random.choice(self.words)
+
 
     def split_word(self):
         """
         Splits the word into a list of individual letters.
         """
-        current_word = random.choice(self.words)
-        list(current_word)
-        print(current_word)
+        letter_list = list(self.current_word)
+        print(letter_list)
 
     def word_length(self):
         """
