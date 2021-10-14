@@ -13,17 +13,13 @@ class Console():
         self.jumper = Jumper()
         
 
-    def get_user_input():
+    def get_user_input(self):
         """
         Get guess letter guess from the user.
         """
-<<<<<<< Updated upstream
         self.jumper.user_guess = input("Guess a letter [a-z]: ")
 
         return self.jumper.user_guess
-=======
-        pass
->>>>>>> Stashed changes
 
     
 
