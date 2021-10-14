@@ -1,30 +1,24 @@
-from game.jumper import Jumper
-
 class Console():
     """
     Prints stuff to the screen.
     """
     def __init__(self):
-        self.letter_list = ["t","e","s","t","b","l"]
-        self.guess_list = [0,0,0,1,1,0]
-
         user_incorrect_number_of_guesses = 0
+        self.user_guess_list = []
         self.user_guess = ""
-        self.jumper = Jumper()
-        
 
     def get_user_input(self):
         """
         Get guess letter guess from the user.
         """
-        self.jumper.user_guess = input("Guess a letter [a-z]: ")
+        self.user_guess = input("Guess a letter [a-z]: ")
+        self.user_guess_list.append(self.user_guess)
 
-        return self.jumper.user_guess
 
     
 
 
-    def display_board(self):
+    def display_board(self, character):
         """
         Inilize Variables
         """
@@ -34,13 +28,10 @@ class Console():
         """
         Displays the jumper character.
         """
-        #starting Header for image
-        print('_ _ _ _ _ ')
-        print('\n')
 
         #Sets the array to be used inthis fuction to be that Of the selected image
         #that Is received from the Jumper Class
-        Array_of_Character = self.jumper.character
+        Array_of_Character = character
 
         #Gets the Length of the Array so that the "for loop" can iterate over the correct length of the image
         length = len(Array_of_Character)
@@ -57,22 +48,24 @@ class Console():
         print('\n')
         print('^^^^^')
 
-        pass
+    def display_dashed_list(self, list):
+        for i in list:
+            print(i, end=" ")
+        print("\n")
 
 
 
-    def display_word(self):
-        """
-        Displays the dash list.
-        """
+    # def display_word(self, letter_list, guess_list):
+    #     """
+    #     Displays the dash list.
+    #     """
 
-        for x in range(len(self.letter_list)):
+    #     for x in range(len(letter_list)):
 
-             if (self.guess_list[x] == 1):
-                print(self.letter_list[x], end=" ")
-             else:
-                    print("_ ", end="")
-        print("")
+    #          if (guess_list[x] == 1):
+    #             print(letter_list[x], end=" ")
+    #          else:
+    #             print("_ ", end="")
+    #     print()
             
 
-        pass

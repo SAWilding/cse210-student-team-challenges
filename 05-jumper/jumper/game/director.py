@@ -36,7 +36,11 @@ class Director:
         Args:
             self (Director): an instance of Director.
         """
-        self.console.display_board()    
+        self.words.create_dashed_list()
+
+        self.console.display_dashed_list(self.words.dashed_list)
+
+        self.console.display_board(self.jumper.character)
         while self.keep_playing:
             self.get_inputs()
             self.do_updates()
@@ -58,8 +62,10 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        self.console.display_board()
-        
+        self.words.update_dashed_list(self.console.user_guess)
+        self.console.display_dashed_list(self.words.dashed_list)
+        self.console.display_board(self.jumper.character)
+
     def do_outputs(self):
         """Outputs the important game information for each round of play. In 
         this case, that means the hider provides a hint.
@@ -67,4 +73,4 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        pass
+        self.console.display_dashed_list(self.console.user_guess_list)

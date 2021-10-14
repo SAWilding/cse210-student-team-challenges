@@ -10,7 +10,10 @@ class Jumper():
         self.user_guess = ""
 
 
-    def check_letter_in_list(self):
-        pass
+    # def check_letter_in_list(self, letter_list, user_guess):
+    #     temp_list = []
+    #     for i in letter_list:
+    #         if user_guess == letter_list[i]:
+
 
 
