@@ -46,7 +46,7 @@ class Console():
 
         #prints the array fromtop to bottom, if the user has any number of incorrect guesses, this will automatically 
         #remove the most top section of the image of the character.
-        for x in reversed(range(length - user_incorrect_number_of_guesses)):
+        for x in reversed(range(length - self.user_incorrect_number_of_guesses)):
             print(Array_of_Character[x])
 
         
