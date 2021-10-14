@@ -1,4 +1,4 @@
-from words import Words
+from game.words import Words
 
 class Jumper():
     """
