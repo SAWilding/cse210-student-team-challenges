@@ -13,7 +13,7 @@ class Console():
         self.jumper = Jumper()
         
 
-    def get_user_input(self):
+    def get_user_input():
         """
         Get guess letter guess from the user.
         """
@@ -53,7 +53,6 @@ class Console():
         #starting Header for image
         print('_ _ _ _ _ ')
         print('\n')
-
 
         #Sets the array to be used inthis fuction to be that Of the selected image
         #that Is received from the Jumper Class
