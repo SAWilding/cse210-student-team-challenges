@@ -36,7 +36,6 @@ class Director:
         Args:
             self (Director): an instance of Director.
         """
-
         self.console.display_board()    
         while self.keep_playing:
             self.get_inputs()

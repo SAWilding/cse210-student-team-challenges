@@ -7,9 +7,13 @@ class Words():
     def __init__(self):
 
         self.words = ["Mars", "astronaut", "space", "comet", "explore", "supernova", "telescope", "Pluto"]
+<<<<<<< HEAD
         self.current_word = random.choice(self.words)
 
 
+=======
+        
+>>>>>>> 1068fd3b8de1dd3bc7cb90473b2229a141e0f112
     def split_word(self):
         """
         Splits the word into a list of individual letters.
