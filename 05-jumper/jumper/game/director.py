@@ -36,6 +36,7 @@ class Director:
         Args:
             self (Director): an instance of Director.
         """
+        print(self.words.split_word())
         Console.display_board(self)    
         while self.keep_playing:
             self.get_inputs()
