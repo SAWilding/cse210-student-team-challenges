@@ -3,7 +3,6 @@ class Console():
     Prints stuff to the screen.
     """
     def __init__(self):
-        user_incorrect_number_of_guesses = 0
         self.user_guess_list = []
         self.user_guess = ""
 
@@ -14,15 +13,10 @@ class Console():
         self.user_guess = input("Guess a letter [a-z]: ")
         self.user_guess_list.append(self.user_guess)
 
-
-    
-
-
-    def display_board(self, character):
+    def display_board(self, character, incorrect_guesses):
         """
         Inilize Variables
         """
-        user_incorrect_number_of_guesses = 3
 
 
         """
@@ -41,14 +35,14 @@ class Console():
 
         #prints the array fromtop to bottom, if the user has any number of incorrect guesses, this will automatically 
         #remove the most top section of the image of the character.
-        for x in reversed(range(length - user_incorrect_number_of_guesses)):
+        for x in reversed(range(length - incorrect_guesses)):
             print(Array_of_Character[x])
 
         
         print('\n')
         print('^^^^^')
 
-    def display_dashed_list(self, list):
+    def display_list(self, list):
         for i in list:
             print(i, end=" ")
         print("\n")

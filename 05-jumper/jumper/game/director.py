@@ -37,14 +37,16 @@ class Director:
             self (Director): an instance of Director.
         """
         self.words.create_dashed_list()
+        self.words.split_word()
+        self.console.display_list(self.words.dashed_list)
 
-        self.console.display_dashed_list(self.words.dashed_list)
-
-        self.console.display_board(self.jumper.character)
-        while self.keep_playing:
+        self.console.display_board(self.jumper.character, self.words.incorrect_guesses)
+        while self.jumper.keep_playing(self.words.dashed_list, self.words.incorrect_guesses):
             self.get_inputs()
             self.do_updates()
             self.do_outputs()
+        self.console.display_board(self.jumper.character, self.words.incorrect_guesses)
+
 
     def get_inputs(self):
         """Gets the inputs at the beginning of each round of play. In this case,
@@ -63,8 +65,7 @@ class Director:
             self (Director): An instance of Director.
         """
         self.words.update_dashed_list(self.console.user_guess)
-        self.console.display_dashed_list(self.words.dashed_list)
-        self.console.display_board(self.jumper.character)
+        
 
     def do_outputs(self):
         """Outputs the important game information for each round of play. In 
@@ -73,4 +74,6 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        self.console.display_dashed_list(self.console.user_guess_list)
+        self.console.display_list(self.words.dashed_list)
+        self.console.display_board(self.jumper.character, self.words.incorrect_guesses)
+        self.console.display_list(self.console.user_guess_list)

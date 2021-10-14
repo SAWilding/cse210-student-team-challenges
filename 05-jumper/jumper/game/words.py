@@ -23,10 +23,10 @@ class Words():
             self.dashed_list.append("_")
 
     def update_dashed_list(self, user_guess):
-        for i in self.letter_list:
+        for i in range(len(self.letter_list)):
             if self.letter_list[i] == user_guess:
                 self.dashed_list.pop(i)
                 self.dashed_list.insert(i, user_guess)
-            else:
-                self.incorrect_guesses += 1            
+        if user_guess not in self.letter_list:
+            self.incorrect_guesses += 1            
 
