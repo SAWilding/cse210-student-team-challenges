@@ -6,7 +6,7 @@ class Words():
 
     def __init__(self):
 
-        self.words = ["Mars", "astronaut", "space", "comet", "explore", "supernova", "telescope", "Pluto"]
+        self.words = ["mars", "astronaut", "space", "comet", "explore", "supernova", "telescope", "pluto"]
         self.current_word = random.choice(self.words)
 
     def split_word(self):
