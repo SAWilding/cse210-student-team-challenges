@@ -36,7 +36,7 @@ class Director:
         Args:
             self (Director): an instance of Director.
         """
-        Console.display_board(self)    
+        self.console.display_board()    
         while self.keep_playing:
             self.get_inputs()
             self.do_updates()
@@ -49,10 +49,7 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        #message = self.seeker.get_message()
-        #self.console.write(message)
-        #location = self.console.read_number("Enter a location [1-1000]: ")
-        #self.seeker.move(location)
+        self.console.get_user_input()
         
     def do_updates(self):
         """Updates the important game information for each round of play. In 
@@ -61,8 +58,7 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        self.console.display_board
-        #self.hider.watch(self.seeker.location)
+        self.console.display_board()
         
     def do_outputs(self):
         """Outputs the important game information for each round of play. In 
@@ -71,6 +67,4 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        hint = self.hider.get_hint()
-        self.console.write(hint)
-        self.keep_playing = (self.hider.distance[-1] != 0)
+        pass

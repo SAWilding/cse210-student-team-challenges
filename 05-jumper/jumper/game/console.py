@@ -27,8 +27,6 @@ class Console():
         """
         Displays the dash list and jumper character.
         """
-        self.user_incorrect_number_of_guesses = 3
-
 
         print('_ _ _ _ _ ')
         print('\n')
