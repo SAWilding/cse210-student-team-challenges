@@ -7,7 +7,7 @@ class Words():
     def __init__(self):
 
         self.words = ["Mars", "astronaut", "space", "comet", "explore", "supernova", "telescope", "Pluto"]
-
+        
     def split_word(self):
         """
         Splits the word into a list of individual letters.

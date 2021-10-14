@@ -16,9 +16,9 @@ class Console():
         """
         Get guess letter guess from the user.
         """
-        self.user_guess = input("Guess a letter [a-z]: ")
+        self.jumper.user_guess = input("Guess a letter [a-z]: ")
 
-        return self.user_guess
+        return self.jumper.user_guess
 
     
 
