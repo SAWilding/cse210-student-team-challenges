@@ -7,11 +7,31 @@ class Jumper():
 
     def __init__(self):
         self.character = [" ___ ", "/___\ ", "\   /", " \ / ", "  0  ", " /|\ ", " / \ "]
+<<<<<<< HEAD
         self.user_guess = ""
         self.incorrect_amount = 0
+=======
+
+    def keep_playing(self, dashed_list, incorrect_guesses):
+        if "_" not in dashed_list:
+            print()
+            print("You won!!")
+            print()
+            return False
+        elif incorrect_guesses == 4:
+            self.character[4] = "  x  "
+            print()
+            print("You lost!!")
+            print()
+            return False
+        else:
+            return True
+        
 
 
-    def check_letter_in_list(self):
-        pass
+
+>>>>>>> 47e2b283b582f4dd69088f6a49e55c39b93f9930
+
+
 
 

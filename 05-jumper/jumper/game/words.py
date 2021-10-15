@@ -8,17 +8,24 @@ class Words():
 
         self.words = ["mars", "astronaut", "space", "comet", "explore", "supernova", "telescope", "pluto"]
         self.current_word = random.choice(self.words)
-
+        self.letter_list = []
+        self.dashed_list = []
+        self.incorrect_guesses = 0
     def split_word(self):
         """
         Splits the word into a list of individual letters.
         """
-        letter_list = list(self.current_word)
-        return letter_list
-
-    def word_length(self):
-        """
-        Determines the length of the word.
-        """
-        return len(self.current_word)
+        self.letter_list = list(self.current_word)
     
+    def create_dashed_list(self):
+        for _ in range(len(self.current_word)):
+            self.dashed_list.append("_")
+
+    def update_dashed_list(self, user_guess):
+        for i in range(len(self.letter_list)):
+            if self.letter_list[i] == user_guess:
+                self.dashed_list.pop(i)
+                self.dashed_list.insert(i, user_guess)
+        if user_guess not in self.letter_list:
+            self.incorrect_guesses += 1            
+
