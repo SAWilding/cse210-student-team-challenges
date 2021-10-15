@@ -1,6 +1,13 @@
 class Console():
     """
     Prints stuff to the screen.
+
+    Stereotype: 
+    Displayer
+
+    Attributes:
+    user_guess_list: stores the letter guesses from the user.
+    user_guess: stores the letter guess for one round of play.
     """
     def __init__(self):
         self.user_guess_list = []

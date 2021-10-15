@@ -3,6 +3,12 @@ from game.words import Words
 class Jumper():
     """
     Creates the jumper character
+
+    Stereotype:
+    Player
+
+    Attributes:
+    character: stores a list that displays the jumper character.
     """
 
     def __init__(self):

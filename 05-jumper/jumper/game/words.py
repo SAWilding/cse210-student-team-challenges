@@ -2,6 +2,16 @@ import random
 class Words():
     """
     Stores the words and generates a word to be printed.
+
+    Stereotype:
+    Data Manipulator
+
+    Attributes: 
+    words: stores a list of possible words.
+    current_word: stores the word that will be used for that session of play.
+    letter_list: stores a list of each individual letter of the current word.
+    dashed_list: stores a list of dashes equal to the length of letter_list.
+    incorrect_guesses: stores the numbers of incorrect guesses by the player.
     """
 
     def __init__(self):
