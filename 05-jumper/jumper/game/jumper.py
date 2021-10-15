@@ -12,11 +12,13 @@ class Jumper():
         if "_" not in dashed_list:
             print()
             print("You won!!")
+            print()
             return False
         elif incorrect_guesses == 4:
             self.character[4] = "  x  "
             print()
             print("You lost!!")
+            print()
             return False
         else:
             return True

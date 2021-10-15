@@ -76,4 +76,5 @@ class Director:
         """
         self.console.display_list(self.words.dashed_list)
         self.console.display_board(self.jumper.character, self.words.incorrect_guesses)
+        print("Guessed letters:")
         self.console.display_list(self.console.user_guess_list)

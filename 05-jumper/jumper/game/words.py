@@ -6,8 +6,7 @@ class Words():
 
     def __init__(self):
 
-        # self.words = ["mars", "astronaut", "space", "comet", "explore", "supernova", "telescope", "pluto"]
-        self.words = ["mars"]
+        self.words = ["mars", "astronaut", "space", "comet", "explore", "supernova", "telescope", "pluto"]
         self.current_word = random.choice(self.words)
         self.letter_list = []
         self.dashed_list = []
