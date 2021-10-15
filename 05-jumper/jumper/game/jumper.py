@@ -9,6 +9,9 @@ class Jumper():
         self.character = [" ___ ", "/___\ ", "\   /", " \ / ", "  0  ", " /|\ ", " / \ "]
 
     def keep_playing(self, dashed_list, incorrect_guesses):
+        """
+        Determines if the player can keep playing or not.
+        """
         if "_" not in dashed_list:
             print()
             print("You won!!")

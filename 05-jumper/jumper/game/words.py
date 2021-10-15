@@ -18,10 +18,16 @@ class Words():
         self.letter_list = list(self.current_word)
     
     def create_dashed_list(self):
+        """
+        Create the dashed list and stores it into the dashed_list variable.
+        """
         for _ in range(len(self.current_word)):
             self.dashed_list.append("_")
 
     def update_dashed_list(self, user_guess):
+        """
+        Updates the dashed list if the player guesses a correct letter.
+        """
         for i in range(len(self.letter_list)):
             if self.letter_list[i] == user_guess:
                 self.dashed_list.pop(i)
