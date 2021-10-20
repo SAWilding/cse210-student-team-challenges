@@ -1,4 +1,6 @@
 import random
+#prints boards
+
 
 class Console:
     """A code template for a computer console. The responsibility of this 
