@@ -2,8 +2,16 @@
 
 class Guess():
     def __init__(self):
-        pass
+        self.current_guess = 0
 
+        
 
+    #sets the guess 
+    def set_guess(self, user_guess):
+        self.current_guess = user_guess
+
+        
+
+    
     def get_guess(self):
-        pass
+        return self.current_guess
