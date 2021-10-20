@@ -5,6 +5,7 @@ class Board():
 
     def __init__(self):
         pass
+        self._items = []
 
     def prepare(self, player):
         """Sets up the board with an entry for each player.

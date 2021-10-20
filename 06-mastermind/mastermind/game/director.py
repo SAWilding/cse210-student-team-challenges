@@ -12,7 +12,7 @@ class Director():
         self._console = Console()
         self._guess = Guess()
         self._board = Board()
-        
+
         self._keep_playing = True
 
     def start_game(self):
