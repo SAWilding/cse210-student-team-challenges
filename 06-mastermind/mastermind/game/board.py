@@ -20,7 +20,7 @@ class Board():
         self.code = str(randint(1000, 10000))
         self.guess = "----"
         self.hint = "****"
-        
+
     def create_board(self):
         board = f"Player {self.name}: {self.guess}, {self.hint}"
         return board
