@@ -13,6 +13,10 @@ class Jumper():
 
     def __init__(self):
         self.character = [" ___ ", "/___\ ", "\   /", " \ / ", "  0  ", " /|\ ", " / \ "]
+<<<<<<< HEAD
+        self.user_guess = ""
+        self.incorrect_amount = 0
+=======
 
     def keep_playing(self, dashed_list, incorrect_guesses):
         """
@@ -35,6 +39,7 @@ class Jumper():
 
 
 
+>>>>>>> 47e2b283b582f4dd69088f6a49e55c39b93f9930
 
 
 

@@ -51,13 +51,15 @@ class Director():
         self._console.write(f"{player.get_name()}'s turn:")
         guess = self._console.read("What's your guess? ")
         self._guess.set_guess(guess) 
+        self._board.update_guess(guess)
+
 
     def _do_updates(self):
 
 
         self._roster.next_player()
         code = self._board.code
-        guess = self._board.guess
+        # guess = self._board.guess
         guess = self._guess.get_guess()
         self._board.hint = self._board._create_hint(code, guess)
 
