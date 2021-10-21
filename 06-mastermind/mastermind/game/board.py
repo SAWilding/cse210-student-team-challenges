@@ -24,6 +24,11 @@ class Board():
         name = player.get_name()
         self._items[name][0] = guess
 
+
+    def update_hint(self, player, hint):
+        name = player.get_name()
+        self._items[name][1] = hint
+        
     def create_board(self, player):
         name = player.get_name()
         guess = self._items[name][0]
