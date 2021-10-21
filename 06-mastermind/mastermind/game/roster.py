@@ -16,6 +16,7 @@ class Roster:
         Args:
             self (Roster): an instance of Roster.
         """
+
         self.current = 0
         self.players = []
         
@@ -29,6 +30,7 @@ class Roster:
         if player not in self.players:
             self.players.append(player)
 
+
     def get_current(self):
         """Gets the current player object.
         
@@ -38,6 +40,9 @@ class Roster:
         Returns:
             Player: The current player.
         """
+
+
+
         return self.players[self.current]
     
     def next_player(self):
