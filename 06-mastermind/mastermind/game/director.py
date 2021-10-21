@@ -64,7 +64,7 @@ class Director():
         # guess = self._board.guess
         guess = self._guess.get_guess()
         hint = self._board._create_hint(code, guess)
-            
+        self._keep_playing = self._guess.check_guess(code)
 
     def _do_outputs(self):
         
