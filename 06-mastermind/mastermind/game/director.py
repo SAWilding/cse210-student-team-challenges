@@ -50,7 +50,7 @@ class Director():
 
         player = self._roster.get_current()
         self._console.write(f"{player.get_name()}'s turn:")
-        guess = self._console.read(colored("What's your guess? ", 'magenta'))
+        guess = self._console.read(colored("What's your guess? ", 'magenta', attrs=['underline']))
         self._guess.set_guess(guess) 
         self._board.update_guess(guess)
 

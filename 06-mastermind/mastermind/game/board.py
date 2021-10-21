@@ -20,7 +20,7 @@ class Board():
         self.name = player.get_name()
         self.code = str(randint(1000, 10000))
         self.guess = "----"
-        self.hint = "****"
+        self.hint = colored("****", 'red')
 
     def update_guess(self, guess):
         '''Takes the guess from the user and makes the self.guess equal to that.'''
