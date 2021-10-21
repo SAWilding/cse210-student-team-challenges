@@ -29,7 +29,7 @@ class Board():
         board = f"Player {self.name}: {self.guess}, {self.hint}"
         return board
         
-    def _create_hint(self, code, guess):
+    def _create_hint(self, code):
         """Generates a hint based on the given code and guess.
 
         Args:
@@ -41,7 +41,7 @@ class Board():
             string: A hint in the form [xxxx]
         """ 
         hint = ""
-        for index, letter in enumerate(guess):
+        for index, letter in enumerate(self.guess):
             if code[index] == letter:
                 hint += "x"
             elif letter in code:

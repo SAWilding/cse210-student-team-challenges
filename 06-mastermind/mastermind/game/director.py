@@ -59,7 +59,7 @@ class Director():
         code = self._board.code
         # guess = self._board.guess
         guess = self._guess.get_guess()
-        self._board.hint = self._board._create_hint(code, guess)
+        self._board.hint = self._board._create_hint(code)
 
     def _do_outputs(self):
         
