@@ -5,7 +5,10 @@ class Board():
 
     def __init__(self):
         pass
-        self._items = []
+        self.name = ""
+        self.code = 0
+        self.guess = ""
+        self.hint = ""
 
     def prepare(self, player):
         """Sets up the board with an entry for each player.
@@ -13,16 +16,14 @@ class Board():
         Args:
             self (Board): an instance of Board.
         """
-
-        name = player.get_name()
+        self.name = player.get_name()
+        self.code = str(randint(1000, 10000))
+        self.guess = "----"
+        self.hint = "****"
         
-        code = str(randint(1000, 10000))
-        guess = "----"
-        hint = "****"
-        self._items[name] = [code, guess, hint]
-
     def create_board(self):
-        pass
+        board = f"Player {self.name}: {self.guess}, {self.hint}"
+        return board
         
     def _create_hint(self, code, guess):
         """Generates a hint based on the given code and guess.

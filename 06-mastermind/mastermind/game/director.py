@@ -28,26 +28,36 @@ class Director():
 
 
     def _prepare_game(self):
+
+
         for n in range(2):
             name = self._console.read(f"Enter a name for player {n + 1}: ")
             player = Player(name)
             self._roster.add_player(player)
+            self._board.prepare(player)
+            board = self._board.create_board()
+            self._console.write(board)
+        
 
 
 
     def _get_inputs(self):
-        self._board.prepare(self._roster.get_current())
-        pass
+        
+
+        player = self._roster.get_current()
+        self._console.write(f"{player.get_name()}'s turn:")
+        guess = self._console.read_number("What's your guess? ")
+        self._guess.set_guess(guess) 
 
     def _do_updates(self):
-        print(Player.get_name(self._roster.get_current()))
 
-        #this will filp flop between player one and player two
+
         self._roster.next_player()
 
 
-        pass
-
     def _do_outputs(self):
-        pass
+        
+
+        board = self._board.create_board()
+        self._console.write(board)
 
