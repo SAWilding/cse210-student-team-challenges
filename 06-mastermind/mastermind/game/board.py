@@ -1,4 +1,5 @@
 from random import randint
+from termcolor import colored
 #display 
 
 class Board():
@@ -44,9 +45,9 @@ class Board():
         hint = ""
         for index, letter in enumerate(self.guess):
             if code[index] == letter:
-                hint += "x"
+                hint += colored("x", 'green')
             elif letter in code:
-                hint += "o"
+                hint += colored("o", 'yellow')
             else:
-                hint += "*"
+                hint += colored("*", 'red')
         return hint
