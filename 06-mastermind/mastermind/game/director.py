@@ -50,21 +50,17 @@ class Director():
         guess = self._console.read(colored("What's your guess? ", 'green', attrs=['bold']))
         self._guess.set_guess(guess) 
         self._board.update_guess(player, guess)
-        if self._roster.current == 0:
-            self._guess.set_p1_guess(guess)
-        elif self._roster.current == 1:
-            self._guess.set_p2_guess(guess)
-        else:
-            print('did not work')
+
 
     def _do_updates(self):
+        
+        player = self._roster.get_current()
 
         self._roster.next_player()
         code = self._board._code
-        # guess = self._board.guess
         guess = self._guess.get_guess()
         hint = self._board._create_hint(code, guess)
-            
+        self._board.update_hint(player, hint)
 
     def _do_outputs(self):
         
