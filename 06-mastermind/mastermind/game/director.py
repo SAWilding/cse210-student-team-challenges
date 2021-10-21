@@ -12,9 +12,7 @@ class Director():
         self._roster = Roster()
         self._console = Console()
         self._guess = Guess()
-        self._board = Board()
-        self._items = []
-        
+        self._board = Board()        
 
         self._keep_playing = True
 
@@ -39,11 +37,10 @@ class Director():
         self._console.write("-"*20)   
         for player in self._roster.players:
             self._board.prepare(player)
-            board = self._board.create_board(self._guess.get_guess())
+            board = self._board.create_board(player)
             self._console.write(board)
         self._console.write("-"*20)
-        self._console.write(self._board.code)
-        
+        self._console.write(self._board._code)
 
     def _get_inputs(self):
         
@@ -52,7 +49,7 @@ class Director():
         self._console.write(f"{player.get_name()}'s turn:")
         guess = self._console.read(colored("What's your guess? ", 'green', attrs=['bold']))
         self._guess.set_guess(guess) 
-        self._board.update_guess(guess)
+        self._board.update_guess(player, guess)
         if self._roster.current == 0:
             self._guess.set_p1_guess(guess)
         elif self._roster.current == 1:
@@ -63,18 +60,16 @@ class Director():
     def _do_updates(self):
 
         self._roster.next_player()
-        code = self._board.code
+        code = self._board._code
         # guess = self._board.guess
         guess = self._guess.get_guess()
-        self._board.hint = self._board._create_hint(code)
+        hint = self._board._create_hint(code, guess)
+            
 
     def _do_outputs(self):
         
         self._console.write("-"*20)
         for player in self._roster.players:
-            self._board.name = player.get_name()
-            p1_board = self._board.create_board(self._guess.get_p1_guess())
-            self._console.write(p1_board)
-            p2_board = self._board.create_board(self._guess.get_p2_guess())
-            self._console.write(p2_board)
+            board = self._board.create_board(player)
+            self._console.write(board)
         self._console.write("-"*20)
