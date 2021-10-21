@@ -3,6 +3,7 @@ from game.console import Console
 from game.guess import Guess
 from game.player import Player
 from game.roster import Roster
+from termcolor import colored
 
 
 class Director():
@@ -47,7 +48,7 @@ class Director():
 
         player = self._roster.get_current()
         self._console.write(f"{player.get_name()}'s turn:")
-        guess = self._console.read("What's your guess? ")
+        guess = self._console.read(colored("What's your guess? ", 'green'))
         self._guess.set_guess(guess) 
         self._board.update_guess(guess)
 
