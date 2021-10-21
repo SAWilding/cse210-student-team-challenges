@@ -24,6 +24,10 @@ class Director():
             self._get_inputs()
             self._do_updates()
             self._do_outputs()
+        self._roster.next_player()
+        player = self._roster.get_current()
+        name = player.get_name()
+        self._console.write(f"{name} won!")
 
 
     def _prepare_game(self):
