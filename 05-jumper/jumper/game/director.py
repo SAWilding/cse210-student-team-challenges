@@ -11,9 +11,8 @@ class Director:
 
     Attributes:
         console (Console): An instance of the class of objects known as Console.
-        keep_playing (boolean): Whether or not the game can continue.
-        seeker (Seeker): An instance of the class of objects known as Seeker.
-        hider (Hider): An instance of the class of objects known as Hider.
+        jumper (Jumper): An instance of the class of objects known as Jumper.
+        words (Words): An instance of the class of objects known as Words.
     """
 
     def __init__(self):
@@ -24,7 +23,6 @@ class Director:
         """
         self.console = Console()
         self.jumper = Jumper()
-        self.keep_playing = True
         self.words = Words()
         
 
@@ -49,18 +47,14 @@ class Director:
 
 
     def get_inputs(self):
-        """Gets the inputs at the beginning of each round of play. In this case,
-        that means moving the seeker to a new location.
-
+        """Gets the inputs at the beginning of each round of play. 
         Args:
             self (Director): An instance of Director.
         """
         self.console.get_user_input()
         
     def do_updates(self):
-        """Updates the important game information for each round of play. In 
-        this case, that means the hider watches the seeker.
-
+        """Updates the important game information for each round of play. 
         Args:
             self (Director): An instance of Director.
         """
@@ -68,8 +62,7 @@ class Director:
         
 
     def do_outputs(self):
-        """Outputs the important game information for each round of play. In 
-        this case, that means the hider provides a hint.
+        """Outputs the important game information for each round of play. 
 
         Args:
             self (Director): An instance of Director.

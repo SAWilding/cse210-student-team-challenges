@@ -36,3 +36,6 @@ root                    (project root folder)
 ---
 * TODO: Add your names and emails here
 Jonathan Gunderson - jlgunderson2@gmail.com
+Seth Wilding - sethwilding@byui.edu 
+Samantha Staheli
+Shannon Vega
