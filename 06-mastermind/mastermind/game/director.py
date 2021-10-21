@@ -39,7 +39,7 @@ class Director():
         self._console.write("-"*20)   
         for player in self._roster.players:
             self._board.prepare(player)
-            board = self._board.create_board()
+            board = self._board.create_board(self._guess.get_guess())
             self._console.write(board)
         self._console.write("-"*20)
         self._console.write(self._board.code)
@@ -53,10 +53,14 @@ class Director():
         guess = self._console.read(colored("What's your guess? ", 'green'))
         self._guess.set_guess(guess) 
         self._board.update_guess(guess)
-
+        if self._roster.current == 0:
+            self._guess.set_p1_guess(guess)
+        elif self._roster.current == 1:
+            self._guess.set_p2_guess(guess)
+        else:
+            print('did not work')
 
     def _do_updates(self):
-
 
         self._roster.next_player()
         code = self._board.code
@@ -69,6 +73,8 @@ class Director():
         self._console.write("-"*20)
         for player in self._roster.players:
             self._board.name = player.get_name()
-            board = self._board.create_board()
-            self._console.write(board)
+            p1_board = self._board.create_board(self._guess.get_p1_guess())
+            self._console.write(p1_board)
+            p2_board = self._board.create_board(self._guess.get_p2_guess())
+            self._console.write(p2_board)
         self._console.write("-"*20)

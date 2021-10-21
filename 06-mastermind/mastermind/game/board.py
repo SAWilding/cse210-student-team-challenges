@@ -25,9 +25,9 @@ class Board():
         '''Takes the guess from the user and makes the self.guess equal to that.'''
         self.guess = guess
 
-    def create_board(self):
+    def create_board(self, player_guess):
         
-        board = f"Player {self.name}: {self.guess}, {self.hint}"
+        board = f"Player {self.name}: {player_guess}, {self.hint}"
         return board
         
     def _create_hint(self, code):
