@@ -26,6 +26,7 @@ class Board():
         self.guess = guess
 
     def create_board(self):
+        
         board = f"Player {self.name}: {self.guess}, {self.hint}"
         return board
         

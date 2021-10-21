@@ -3,6 +3,7 @@ from game.console import Console
 from game.guess import Guess
 from game.player import Player
 from game.roster import Roster
+from termcolor import colored
 
 
 class Director():
@@ -34,12 +35,14 @@ class Director():
             name = self._console.read(f"Enter a name for player {n + 1}: ")
             player = Player(name)
             self._roster.add_player(player)
-            
+        
+        self._console.write("-"*20)   
         for player in self._roster.players:
             self._board.prepare(player)
             board = self._board.create_board()
             self._console.write(board)
-
+        self._console.write("-"*20)
+        self._console.write(self._board.code)
         
 
     def _get_inputs(self):
@@ -47,7 +50,7 @@ class Director():
 
         player = self._roster.get_current()
         self._console.write(f"{player.get_name()}'s turn:")
-        guess = self._console.read("What's your guess? ")
+        guess = self._console.read(colored("What's your guess? ", 'green'))
         self._guess.set_guess(guess) 
         self._board.update_guess(guess)
 
@@ -63,7 +66,9 @@ class Director():
 
     def _do_outputs(self):
         
-
-        board = self._board.create_board()
-        self._console.write(board)
-
+        self._console.write("-"*20)
+        for player in self._roster.players:
+            self._board.name = player.get_name()
+            board = self._board.create_board()
+            self._console.write(board)
+        self._console.write("-"*20)
