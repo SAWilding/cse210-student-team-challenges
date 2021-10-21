@@ -13,7 +13,9 @@ class Board():
         Args:
             self (Board): an instance of Board.
         """
+
         name = player.get_name()
+        
         code = str(randint(1000, 10000))
         guess = "----"
         hint = "****"

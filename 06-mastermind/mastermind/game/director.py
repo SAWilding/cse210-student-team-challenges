@@ -12,12 +12,15 @@ class Director():
         self._console = Console()
         self._guess = Guess()
         self._board = Board()
+        self._items = []
+        
 
         self._keep_playing = True
 
     def start_game(self):
         
         self._prepare_game()
+        
         while self._keep_playing:
             self._get_inputs()
             self._do_updates()
@@ -30,10 +33,19 @@ class Director():
             player = Player(name)
             self._roster.add_player(player)
 
+
+
     def _get_inputs(self):
+        self._board.prepare(self._roster.get_current())
         pass
 
     def _do_updates(self):
+        print(Player.get_name(self._roster.get_current()))
+
+        #this will filp flop between player one and player two
+        self._roster.next_player()
+
+
         pass
 
     def _do_outputs(self):
