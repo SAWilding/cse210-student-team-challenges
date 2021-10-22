@@ -48,18 +48,11 @@ class Console():
         
         print('\n')
         print('^^^^^')
-<<<<<<< HEAD
-=======
 
-<<<<<<< HEAD
-        pass
->>>>>>> 3377310a0f66ccb27dbdbfd180c242f099c694fb
-=======
     def display_list(self, list):
         for i in list:
             print(i, end=" ")
         print("\n")
->>>>>>> 47e2b283b582f4dd69088f6a49e55c39b93f9930
 
 
 
