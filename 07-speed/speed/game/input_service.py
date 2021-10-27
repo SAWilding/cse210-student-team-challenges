@@ -1,5 +1,5 @@
 import sys
-from asciimatics.event import KeyboardEvent
+import raylibpy
 
 class InputService:
     """Detects player input. The responsibility of the class of objects is to detect player keypresses and translate them into a point representing a direction (or velocity).
@@ -29,7 +29,7 @@ class InputService:
             string: The letter that was typed.
         """
         result = ""
-        event = self._screen.get_key()
+        event = self._screen.GetKeyPressed()
         if not event is None:
             if event == 27:
                 sys.exit()
