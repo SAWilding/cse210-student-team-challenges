@@ -1,4 +1,3 @@
-
 import raylibpy
 from game import constants
 from game.actor import Actor
@@ -10,7 +9,6 @@ class Buffer(Actor):
         super().__init__()
         self._prepare()
         self._content = ""
-
 
     def _prepare(self):
         self._content = ""
