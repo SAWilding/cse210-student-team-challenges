@@ -1,15 +1,30 @@
 import os
 import random
+from game.actor import Actor
 
-class Words:
-    def __inti__(self):
-        self.words = []
+class Words(Actor):
+    def __init__(self):
+        super().__init__()
+        self.word = ""
+        self.words_list= []
         self.PATH = os.path.dirname(os.path.abspath(__file__))
-        self.LIBRARY = open(self.PATH + "/words.txt")
+        self.lines = open(self.PATH + "/words.txt").read().splitlines()
 
-    def get_Random_Word(self):
-        print(self.LIBRARY)
-        pass
 
-test=Words()
-test.get_Random_Word()
+
+    def get_random_word(self):
+        myline =random.choice(self.lines)
+        self.word = myline
+        self.words_list.append(self.word)
+
+
+    def prepare(self):
+        for _ in range(5):
+            self.get_random_word()
+
+
+
+
+
+#test=Words()
+#test.prepare()

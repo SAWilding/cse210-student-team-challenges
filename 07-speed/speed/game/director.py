@@ -57,6 +57,7 @@ class Director:
         self._score_board = ScoreBoard()
         self._buffer = Buffer()
         
+        
     def start_game(self):
         """Starts the game loop to control the sequence of play.
         
