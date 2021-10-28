@@ -4,8 +4,10 @@ try:
     import os
     os.environ["RAYLIB_BIN_PATH"] = r"C:\Users\jlgun\AppData\Local\Programs\Python\Python39\Lib\site-packages\raylib-2.0.0-Win64-mingw\lib"  #gitignore
     import raylibpy
+    print("Jonathans import raylibpy Called")
 except ImportError:
     import raylibpy
+    print("Default import raylibpy Called")
 #End import for Jonathans Computer
 
 from time import sleep
