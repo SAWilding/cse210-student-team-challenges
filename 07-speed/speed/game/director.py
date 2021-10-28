@@ -1,20 +1,23 @@
 #This is an import check system for Jonathans Computer
 #If the import for the file path fails, it will go to a normal raylibpy import
-try:
-    import os
-    os.environ["RAYLIB_BIN_PATH"] = r"C:\Users\jlgun\AppData\Local\Programs\Python\Python39\Lib\site-packages\raylib-2.0.0-Win64-mingw\lib"  #gitignore
-    import raylibpy
-    print("Jonathans import raylibpy Called")
-except ImportError:
-    import raylibpy
-    print("Default import raylibpy Called")
+# try:
+#     import os
+#     os.environ["RAYLIB_BIN_PATH"] = r"C:\Users\jlgun\AppData\Local\Programs\Python\Python39\Lib\site-packages\raylib-2.0.0-Win64-mingw\lib"  #gitignore
+#     import raylibpy
+#     print("Jonathans import raylibpy Called")
+# except ImportError:
+#     import raylibpy
+#     print("Default import raylibpy Called")
 #End import for Jonathans Computer
 
+import raylibpy
 from time import sleep
 
 from game import constants
 
 from game.score_board import ScoreBoard
+
+from game.buffer import Buffer
 
 class Director:
     """A code template for a person who directs the game. The responsibility of 
@@ -43,6 +46,7 @@ class Director:
         self._keep_playing = True
         self._output_service = output_service
         self._score_board = ScoreBoard()
+        self._buffer = Buffer()
         
     def start_game(self):
         """Starts the game loop to control the sequence of play.
@@ -79,7 +83,7 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        
+        self._buffer._update_buffer()
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In 
         this case, that means checking if there are stones left and declaring 
@@ -89,7 +93,7 @@ class Director:
             self (Director): An instance of Director.
         """
         self._output_service.clear_screen()
-
+        self._output_service.draw_actor(self._buffer)
         self._output_service.draw_actor(self._score_board)
         self._output_service.flush_buffer()
 
