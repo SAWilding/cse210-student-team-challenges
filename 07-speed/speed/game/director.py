@@ -1,6 +1,15 @@
+#This is an import check system for Jonathans Computer
+#If the import for the file path fails, it will go to a normal raylibpy import
+try:
+    import os
+    os.environ["RAYLIB_BIN_PATH"] = r"C:\Users\jlgun\AppData\Local\Programs\Python\Python39\Lib\site-packages\raylib-2.0.0-Win64-mingw\lib"  #gitignore
+    import raylibpy
+except ImportError:
+    import raylibpy
+#End import for Jonathans Computer
+
 from time import sleep
 
-import raylibpy
 from game import constants
 
 from game.score_board import ScoreBoard
