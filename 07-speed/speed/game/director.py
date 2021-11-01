@@ -31,6 +31,8 @@ from game.buffer import Buffer
 
 from game.word import Word
 
+from random import randint
+
 class Director:
     """A code template for a person who directs the game. The responsibility of 
     this class of objects is to control the sequence of play.
@@ -53,14 +55,12 @@ class Director:
         Args:
             self (Director): an instance of Director.
         """
-        # TODO: Uncomment this when you have finished the food class
         self._input_service = input_service
         self._keep_playing = True
         self._output_service = output_service
         self._score_board = ScoreBoard()
         self._buffer = Buffer()
-        self._word = Word()
-        self._words = [Word(), Word(), Word(), Word(), Word()]
+        self._words = [Word()]
         
     def start_game(self):
         """Starts the game loop to control the sequence of play.
@@ -109,11 +109,23 @@ class Director:
         self._output_service.clear_screen()
         self._output_service.draw_actor(self._buffer)
         self._output_service.draw_actor(self._score_board)
+        self.handle_word_generation()
         for i in range(len(self._words)):
             self._output_service.draw_actor(self._words[i])
             self._words[i].move_next()
+            self.handle_word_deletion(self._words[i])
         self._output_service.flush_buffer()
 
 
 
- 
+    def handle_word_generation(self):
+        chance = randint(1, 100)
+        if chance <= 1:
+            self._words.append(Word())
+
+    def handle_word_deletion(self, word):
+        position = word.get_position()
+        position_x = position.get_x()
+        if position_x == 0:
+            self._words.remove(word)
+            

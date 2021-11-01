@@ -27,10 +27,6 @@ class Word(Actor):
         self.set_position(Point(constants.MAX_X, random.randint(20, constants.MAX_Y - 50)))
         self.set_velocity(Point(random.randint(-3, -1), 0))
 
-    def check_position(self):
-        pass
-
-
 
 
 
