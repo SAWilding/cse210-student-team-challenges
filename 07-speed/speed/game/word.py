@@ -25,16 +25,8 @@ class Word(Actor):
         self.get_random_word()
         self.set_text(self.word)
         self.set_position(Point(constants.MAX_X, random.randint(20, constants.MAX_Y - 50)))
-        #creates the random integer for the x and y velocity
-        x = random.randint(-3, 3)
-        y = random.randint(-3, 3)
-        #this will ensure that there is never a velocity of zero
-        if x == 0:
-            x = x + 1
-        if y == 0:
-            x = y + 1    
-        #Set the velocity that is created
-        self.set_velocity(Point(x, y))
+        self.set_velocity(Point(random.randint(-3, -1), 0))
+
 
 
 
