@@ -19,8 +19,7 @@
 #     import raylibpy
 #     print("Default import raylibpy Called")
 
-
-#import raylibpy
+import raylibpy
 from time import sleep
 
 from game import constants
