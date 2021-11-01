@@ -59,7 +59,7 @@ class Director:
         self._output_service = output_service
         self._score_board = ScoreBoard()
         self._buffer = Buffer()
-        self._words = [Word()]
+        self._words = [Word(), Word(), Word(), Word(), Word()]
         
     def start_game(self):
         """Starts the game loop to control the sequence of play.
@@ -109,10 +109,10 @@ class Director:
         self._output_service.draw_actor(self._buffer)
         self._output_service.draw_actor(self._score_board)
         self.handle_word_generation()
-        for i in range(len(self._words)):
-            self._output_service.draw_actor(self._words[i])
-            self._words[i].move_next()
-            self.handle_word_deletion(self._words[i])
+        for word in self._words:
+            self.handle_word_deletion(word)
+            self._output_service.draw_actor(word)
+            word.move_next()  
         self._output_service.flush_buffer()
 
 
