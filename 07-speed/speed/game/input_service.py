@@ -31,3 +31,24 @@ class InputService:
         Determines if the user is trying to close the window
         """
         return raylibpy.window_should_close()
+
+
+    def check_word_list(self):
+        #get current word list.
+        temp_word_list_check = ["tom", "jerry", "move"]
+        compare_list = "".join(temp_word_list_check)
+        """
+            This will get the current input rom the player, assumin g
+        """
+        place_player_input_string_here = "jerry"
+
+
+        if place_player_input_string_here in compare_list:
+            print('Success phase 1')
+            for i in place_player_input_string_here:
+                if i == compare_list:
+                    print('Success!')
+        else:
+            print("failed!!!")
+
+        pass

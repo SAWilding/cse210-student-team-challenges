@@ -88,7 +88,7 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        self._word.check_word_list()
+        self._input_service.check_word_list()
 
     def _do_updates(self):
         """Updates the important game information for each round of play. In 
