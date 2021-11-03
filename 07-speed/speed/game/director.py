@@ -61,6 +61,7 @@ class Director:
         self._score_board = ScoreBoard()
         self._buffer = Buffer()
         self._words = [Word(), Word(), Word(), Word(), Word()]
+        self._words_to_remove = []
         
     def start_game(self):
         """Starts the game loop to control the sequence of play.
@@ -105,6 +106,7 @@ class Director:
             word.move_next() 
             self.check_buffer_for_word(word)
         self._buffer._update_buffer()
+
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In 
         this case, that means checking if there are stones left and declaring 
@@ -130,9 +132,11 @@ class Director:
         position_x = position.get_x()
         if position_x == 0:
             self._words.remove(word)
+            self._score_board.subtract_points(len(word.word))
             
     def check_buffer_for_word(self, word):
         key = raylibpy.get_key_pressed()
         if key == 32:
             if word.word in self._buffer._content:
                 self._words.remove(word)
+                self._score_board.add_points(len(word.word))
