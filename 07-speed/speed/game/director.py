@@ -70,7 +70,8 @@ class Director:
         """
         print("Starting game...")
         self._output_service.open_window("Speed")
-
+        self._input_service.check_word_list()
+        
         while self._keep_playing:
             self._get_inputs()
             self._do_updates()
@@ -88,7 +89,7 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        self._input_service.check_word_list()
+
 
     def _do_updates(self):
         """Updates the important game information for each round of play. In 

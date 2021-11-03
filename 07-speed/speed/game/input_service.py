@@ -36,18 +36,29 @@ class InputService:
     def check_word_list(self):
         #get current word list.
         temp_word_list_check = ["tom", "jerry", "move"]
-        compare_list = "".join(temp_word_list_check)
+
         """
             This will get the current input rom the player, assumin g
         """
-        place_player_input_string_here = "jerry"
+        place_player_input_string_here = "lolJerrylol"
 
+        """
+            This will take the player stings and make them lower incase the player
+            Presses the shift key or caps the wrong letter of the word.
+        """
+        place_player_input_string_here = place_player_input_string_here.lower()
 
-        if place_player_input_string_here in compare_list:
-            print('Success phase 1')
-            for i in place_player_input_string_here:
-                if i == compare_list:
-                    print('Success!')
+        #debug variable
+        x = 1
+        #debug print string
+        print(place_player_input_string_here)
+
+        if  temp_word_list_check[x] in place_player_input_string_here:
+            #this will remove the correct word from the players typed out string if it is correct
+            place_player_input_string_here = place_player_input_string_here.replace(temp_word_list_check[x], '')
+            #debug print string
+            print(place_player_input_string_here)
+
         else:
             print("failed!!!")
 
