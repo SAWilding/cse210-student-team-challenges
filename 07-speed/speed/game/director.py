@@ -20,6 +20,7 @@
 #     print("Default import raylibpy Called")
 # import os
 # os.environ["RAYLIB_BIN_PATH"] = r"C:\Users\jlgun\AppData\Local\Programs\Python\Python39\Lib\site-packages\raylib-2.0.0-Win64-mingw\lib"  #gitignore
+
 import raylibpy
 from time import sleep
 
@@ -136,7 +137,7 @@ class Director:
             
     def check_buffer_for_word(self, word):
         key = raylibpy.get_key_pressed()
-        if key == 32:
+        if raylibpy.is_key_pressed(257):
             if word.word in self._buffer._content:
                 self._words.remove(word)
                 self._score_board.add_points(len(word.word))

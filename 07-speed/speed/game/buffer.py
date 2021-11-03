@@ -17,7 +17,7 @@ class Buffer(Actor):
 
     def _update_buffer(self):
         key = raylibpy.get_key_pressed()
-        if key == 32:
+        if raylibpy.is_key_pressed(257):
             self._clear_buffer()
         elif key > 0:
             letter = chr(key)
