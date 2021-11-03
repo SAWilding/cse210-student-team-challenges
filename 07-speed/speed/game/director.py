@@ -18,8 +18,8 @@
 # else:
 #     import raylibpy
 #     print("Default import raylibpy Called")
-import os
-os.environ["RAYLIB_BIN_PATH"] = r"C:\Users\jlgun\AppData\Local\Programs\Python\Python39\Lib\site-packages\raylib-2.0.0-Win64-mingw\lib"  #gitignore
+# import os
+# os.environ["RAYLIB_BIN_PATH"] = r"C:\Users\jlgun\AppData\Local\Programs\Python\Python39\Lib\site-packages\raylib-2.0.0-Win64-mingw\lib"  #gitignore
 import raylibpy
 from time import sleep
 
@@ -98,6 +98,12 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
+        self.handle_word_generation() 
+        for word in self._words:
+            self.handle_word_deletion(word)
+            self._output_service.draw_actor(word)
+            word.move_next() 
+            self.check_buffer_for_word(word)
         self._buffer._update_buffer()
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In 
@@ -110,11 +116,6 @@ class Director:
         self._output_service.clear_screen()
         self._output_service.draw_actor(self._buffer)
         self._output_service.draw_actor(self._score_board)
-        self.handle_word_generation()
-        for word in self._words:
-            self.handle_word_deletion(word)
-            self._output_service.draw_actor(word)
-            word.move_next()  
         self._output_service.flush_buffer()
 
 
@@ -130,3 +131,8 @@ class Director:
         if position_x == 0:
             self._words.remove(word)
             
+    def check_buffer_for_word(self, word):
+        key = raylibpy.get_key_pressed()
+        if key == 32:
+            if word.word in self._buffer._content:
+                self._words.remove(word)

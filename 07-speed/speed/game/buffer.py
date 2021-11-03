@@ -24,7 +24,6 @@ class Buffer(Actor):
             self._content += letter
             self.set_text(f"Buffer: {self._content}")
         
-
     def _clear_buffer(self):
         self._content = ""
         self.set_text(f"Buffer: {self._content}")
