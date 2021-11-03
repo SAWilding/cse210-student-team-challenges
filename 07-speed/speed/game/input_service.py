@@ -40,7 +40,8 @@ class InputService:
         """
             This will get the current input rom the player, assumin g
         """
-        place_player_input_string_here = "lolJerrylol"
+        #test input
+        place_player_input_string_here = "lolJerryovetomlol"
 
         """
             This will take the player stings and make them lower incase the player
@@ -48,18 +49,16 @@ class InputService:
         """
         place_player_input_string_here = place_player_input_string_here.lower()
 
-        #debug variable
-        x = 1
         #debug print string
         print(place_player_input_string_here)
 
-        if  temp_word_list_check[x] in place_player_input_string_here:
-            #this will remove the correct word from the players typed out string if it is correct
-            place_player_input_string_here = place_player_input_string_here.replace(temp_word_list_check[x], '')
-            #debug print string
-            print(place_player_input_string_here)
+        for x in range(len(temp_word_list_check)):
 
-        else:
-            print("failed!!!")
+            if  temp_word_list_check[x] in place_player_input_string_here:
+                #this will remove the correct word from the players typed out string if it is correct
+                place_player_input_string_here = place_player_input_string_here.replace(temp_word_list_check[x], '')
+                #debug print string
+                print(place_player_input_string_here)
 
-        pass
+
+    pass
