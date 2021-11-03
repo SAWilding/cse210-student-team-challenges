@@ -166,6 +166,6 @@ class Director:
     def play_win_sound(self):
         winsound.PlaySound("SystemExclamation", winsound.SND_ALIAS)
 
-def check_longest_word(self):
+    def check_longest_word(self):
         if self._score_board.get_points() >= 0:
             self.word.add_longest_word()
