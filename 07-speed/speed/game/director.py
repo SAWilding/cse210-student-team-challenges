@@ -18,7 +18,8 @@
 # else:
 #     import raylibpy
 #     print("Default import raylibpy Called")
-
+import os
+os.environ["RAYLIB_BIN_PATH"] = r"C:\Users\jlgun\AppData\Local\Programs\Python\Python39\Lib\site-packages\raylib-2.0.0-Win64-mingw\lib"  #gitignore
 import raylibpy
 from time import sleep
 
@@ -69,7 +70,8 @@ class Director:
         """
         print("Starting game...")
         self._output_service.open_window("Speed")
-
+        self._input_service.check_word_list()
+        
         while self._keep_playing:
             self._get_inputs()
             self._do_updates()
@@ -87,7 +89,7 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-    
+
 
     def _do_updates(self):
         """Updates the important game information for each round of play. In 

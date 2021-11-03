@@ -30,6 +30,9 @@ class Word(Actor):
 
 
 
+    def check_position(self):
+        pass
 
-#test=Words()
-#test.prepare()
+
+
+
