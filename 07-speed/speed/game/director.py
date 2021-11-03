@@ -35,6 +35,8 @@ from game.buffer import Buffer
 from game.word import Word
 
 from random import randint
+import multiprocessing
+import winsound
 
 class Director:
     """A code template for a person who directs the game. The responsibility of 
@@ -64,6 +66,8 @@ class Director:
         self._score_board = ScoreBoard()
         self._buffer = Buffer()
         self._words = [Word(), Word(), Word(), Word(), Word()]
+        self._words_to_remove = []
+        self.word = Word()
         
     def start_game(self):
         """Starts the game loop to control the sequence of play.
@@ -107,6 +111,7 @@ class Director:
             self._output_service.draw_actor(word)
             word.move_next() 
             self.check_buffer_for_word(word)
+            self.check_longest_word()
         self._buffer._update_buffer()
 
     def _do_outputs(self):
@@ -153,3 +158,14 @@ class Director:
             if word.word in self._buffer._content:
                 self._words.remove(word)
                 self._score_board.add_points(len(word.word))
+
+
+                p = multiprocessing.Process(target=self.play_win_sound)
+                p.start()
+
+    def play_win_sound(self):
+        winsound.PlaySound("SystemExclamation", winsound.SND_ALIAS)
+
+    def check_longest_word(self):
+        if self._score_board.get_points() >= 0:
+            self.word.add_longest_word()
