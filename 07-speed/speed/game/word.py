@@ -31,5 +31,7 @@ class Word(Actor):
     def get_longest_word(self):
         return self.longest_word
 
+    def add_longest_word(self):
+        self.words_list.append("floccinaucinihilipilification")
 
 
