@@ -68,7 +68,7 @@ class Director:
             self (Director): an instance of Director.
         """
         print("Starting game...")
-        self._output_service.open_window("Snake")
+        self._output_service.open_window("Speed")
 
         while self._keep_playing:
             self._get_inputs()
