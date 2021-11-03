@@ -35,6 +35,8 @@ from game.buffer import Buffer
 from game.word import Word
 
 from random import randint
+import multiprocessing
+import winsound
 
 class Director:
     """A code template for a person who directs the game. The responsibility of 
@@ -156,7 +158,14 @@ class Director:
             if word.word in self._buffer._content:
                 self._words.remove(word)
                 self._score_board.add_points(len(word.word))
-    
-    def check_longest_word(self):
+
+
+                p = multiprocessing.Process(target=self.play_win_sound)
+                p.start()
+
+    def play_win_sound(self):
+        winsound.PlaySound("SystemExclamation", winsound.SND_ALIAS)
+
+def check_longest_word(self):
         if self._score_board.get_points() >= 0:
             self.word.add_longest_word()
