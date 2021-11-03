@@ -62,7 +62,6 @@ class Director:
         self._score_board = ScoreBoard()
         self._buffer = Buffer()
         self._words = [Word(), Word(), Word(), Word(), Word()]
-        self._words_to_remove = []
         
     def start_game(self):
         """Starts the game loop to control the sequence of play.
@@ -124,11 +123,23 @@ class Director:
 
 
     def handle_word_generation(self):
+        """
+        Handles the chance of a word appearing on the screen.
+
+        Args:
+            self(Director): An instance of the Director.
+        """
         chance = randint(1, 100)
         if chance <= 1:
             self._words.append(Word())
 
     def handle_word_deletion(self, word):
+        """
+        Deletes the word from the screen once it reaches the edge of the screen.
+
+        Args:
+            self(Director): An instance of the Director.
+        """
         position = word.get_position()
         position_x = position.get_x()
         if position_x == 0:
@@ -136,7 +147,6 @@ class Director:
             self._score_board.subtract_points(len(word.word))
             
     def check_buffer_for_word(self, word):
-        key = raylibpy.get_key_pressed()
         if raylibpy.is_key_pressed(257):
             if word.word in self._buffer._content:
                 self._words.remove(word)
