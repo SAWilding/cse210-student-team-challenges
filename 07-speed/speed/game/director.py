@@ -1,26 +1,26 @@
 #This is an import check system for Jonathans Computer
 #If the import for the file path fails, it will go to a normal raylibpy import
 # '''
-# try:
-#     import os
-#     os.environ["RAYLIB_BIN_PATH"] = r"C:\Users\jlgun\AppData\Local\Programs\Python\Python39\Lib\site-packages\raylib-2.0.0-Win64-mingw\lib"  #gitignore
-#     import raylibpy 
-# except Exception as e:
-#     print(e)
-#     try:
-#         import os
-#         os.environ["RAYLIB_BIN_PATH"] = r"C:\Users\Sam\AppData\Local\Programs\Python\Python39\Lib\site-packages\raylib-2.0.0-Win64-mingw\lib"
-#         import raylibpy
-#     except Exception as e:
-#         print(e)
-#     else:
-#         import raylibpy
-#         print("Default import raylibpy Called")
-# else:
-#     import raylibpy
-#     print("Default import raylibpy Called")
-# import os
-# os.environ["RAYLIB_BIN_PATH"] = r"C:\Users\jlgun\AppData\Local\Programs\Python\Python39\Lib\site-packages\raylib-2.0.0-Win64-mingw\lib"  #gitignore
+try:
+    import os
+    os.environ["RAYLIB_BIN_PATH"] = r"C:\Users\jlgun\AppData\Local\Programs\Python\Python39\Lib\site-packages\raylib-2.0.0-Win64-mingw\lib"  #gitignore
+    import raylibpy 
+except Exception as e:
+    print(e)
+    try:
+        import os
+        os.environ["RAYLIB_BIN_PATH"] = r"C:\Users\Sam\AppData\Local\Programs\Python\Python39\Lib\site-packages\raylib-2.0.0-Win64-mingw\lib"
+        import raylibpy
+    except Exception as e:
+        print(e)
+    else:
+        import raylibpy
+        print("Default import raylibpy Called")
+else:
+    import raylibpy
+    print("Default import raylibpy Called")
+import os
+os.environ["RAYLIB_BIN_PATH"] = r"C:\Users\jlgun\AppData\Local\Programs\Python\Python39\Lib\site-packages\raylib-2.0.0-Win64-mingw\lib"  #gitignore
 # '''
 
 import raylibpy
@@ -62,12 +62,13 @@ class Director:
         """
         self._input_service = input_service
         self._keep_playing = True
+        self._add_longest_word = True
         self._output_service = output_service
         self._score_board = ScoreBoard()
         self._buffer = Buffer()
         self._words = [Word(), Word(), Word(), Word(), Word()]
         self._words_to_remove = []
-        self.word = Word()
+        self._word = Word()
         
     def start_game(self):
         """Starts the game loop to control the sequence of play.
@@ -106,12 +107,12 @@ class Director:
             self (Director): An instance of Director.
         """
         self.handle_word_generation() 
+        # self.check_longest_word()
         for word in self._words:
             self.handle_word_deletion(word)
             self._output_service.draw_actor(word)
             word.move_next() 
             self.check_buffer_for_word(word)
-            self.check_longest_word()
         self._buffer._update_buffer()
 
     def _do_outputs(self):
@@ -137,8 +138,15 @@ class Director:
             self(Director): An instance of the Director.
         """
         chance = randint(1, 100)
-        if chance <= 1:
+        if chance <= 1 and self._add_longest_word == False:
+            print('director add long word false called')
             self._words.append(Word())
+        elif self._score_board.get_points() >= 2 and self._add_longest_word == True:
+            print('director add longe word true called')
+            while self._add_longest_word == True:
+                self._word.get_longest_word()
+                self._word._prepare()
+                self._add_longest_word = False
 
     def handle_word_deletion(self, word):
         """
@@ -167,5 +175,8 @@ class Director:
         winsound.PlaySound("SystemExclamation", winsound.SND_ALIAS)
 
     def check_longest_word(self):
-        if self._score_board.get_points() >= 0:
-            self.word.add_longest_word()
+        if self._score_board.get_points() >= 2 and self._add_longest_word == True:
+            while self._add_longest_word == True:
+                self._word.get_longest_word()
+                self._word._prepare()
+                self._add_longest_word = False
